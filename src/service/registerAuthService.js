@@ -1,6 +1,6 @@
 import User from "../model/User.js";
 
-class registerAuthService {
+export default class registerAuthService {
     async findUser(email) {
         const user = await User.findOne({email});
         return user;
@@ -11,5 +11,3 @@ class registerAuthService {
         await user.save();
     }
 }
-
-export default registerAuthService;
