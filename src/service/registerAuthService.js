@@ -12,4 +12,4 @@ class registerAuthService {
     }
 }
 
-export default new registerAuthService();
+export default registerAuthService;

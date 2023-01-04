@@ -6,7 +6,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 class registerAuthController {
-    async register(req, res) {
+    constructor(registerAuthService) {
+        this.registerAuthService = registerAuthService;
+    }
+
+    register = async (req, res) => {
         try {
             const schema = Joi.object({
                 email: Joi.string().email().required(),
@@ -18,7 +22,7 @@ class registerAuthController {
             }
 
             const {email, password} = req.body;
-            const candidate = await registerAuthService.findUser(email);
+            const candidate = await this.registerAuthService.findUser(email);
             if (candidate) {
                 return res.status(400).json({message: 'User with this email already exists'});
             }
@@ -31,10 +35,11 @@ class registerAuthController {
         }
     }
 
-    async login(req, res) {
+    login = async (req, res) => {
         try {
+            console.log(this)
             const {email, password} = req.body;
-            const user = await registerAuthService.findUser(email);
+            const user = await this.registerAuthService.findUser(email);
 
             if (!user) {
                 return res.status(400).json({message: 'User with this email does not exist'});
@@ -51,4 +56,4 @@ class registerAuthController {
     }
 }
 
-export default new registerAuthController();
+export default registerAuthController;
