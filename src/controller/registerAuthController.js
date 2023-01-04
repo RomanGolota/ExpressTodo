@@ -37,6 +37,7 @@ class registerAuthController {
 
     login = async (req, res) => {
         try {
+            console.log(this)
             const {email, password} = req.body;
             const user = await this.registerAuthService.findUser(email);
 
