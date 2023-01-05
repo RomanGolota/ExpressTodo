@@ -4,6 +4,7 @@ import {beforeEach} from "@jest/globals";
 describe('registerAuthController', () => {
     let registerAuthController;
     let registerAuthService;
+    let tokenCreator
     let req;
     let res;
 
@@ -12,7 +13,12 @@ describe('registerAuthController', () => {
             findUser: jest.fn(),
             createUser: jest.fn(),
         };
-        registerAuthController = new RegisterAuthController(registerAuthService);
+        tokenCreator = {
+            checkPassword: jest.fn(),
+            getToken: jest.fn(),
+            hashPassword: jest.fn()
+        }
+        registerAuthController = new RegisterAuthController(registerAuthService, tokenCreator);
         req = {
             body: {
                 email: 'test@example.com',
@@ -35,6 +41,7 @@ describe('registerAuthController', () => {
 
         it('should create the user and return a 200 response', async () => {
             registerAuthService.findUser.mockResolvedValue(false);
+            tokenCreator.hashPassword.mockResolvedValue('hashed password')
             await registerAuthController.register(req, res);
             expect(res.status).toHaveBeenCalledWith(200);
             expect(res.json).toHaveBeenCalledWith({ message: 'User test@example.com was created' });
