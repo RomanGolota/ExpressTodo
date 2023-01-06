@@ -6,9 +6,10 @@ const checkTodoOwnerMiddleware = async (req, res, next) => {
         const todo = await todosService.getTodoById(id);
 
         if (todo.user.equals(req.user.id)) {
+            console.log(todo.user)
+            console.log(req.user.id)
             return next();
         } else {
-            // Return a 401 status code when the user is not the owner of the todo
             return res.status(401).json({ message: 'Unauthorized' });
         }
     } catch (error) {

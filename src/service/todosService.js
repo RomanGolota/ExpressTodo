@@ -1,9 +1,10 @@
 import Todo from "../model/Todo.js";
+import mongoose from "mongoose";
 
 class todosService {
-    async getTodos(user_id) {
+    async getTodos(user) {
         try {
-            return await Todo.find({user_id})
+            return await Todo.find({ user: mongoose.Types.ObjectId(user.id) })
         } catch (error) {
             console.log(error)
         }
