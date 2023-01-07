@@ -8,8 +8,7 @@ class TodosController {
     getTodos = async (req, res) => {
         try {
             const todos = await this.todosService.getTodos(req.user.id);
-            const filteredArray = todos.filter(item => item.user.equals(req.user.id));
-            res.send(filteredArray);
+            res.send(todos);
         } catch (error) {
             console.log(error)
             return res.status(500).json({ message: error.message });
