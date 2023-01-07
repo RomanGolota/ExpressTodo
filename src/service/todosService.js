@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 class todosService {
     async getTodos(user) {
         try {
-            return await Todo.find({ user: mongoose.Types.ObjectId(user.id) })
+            return await Todo.find({ user: mongoose.Types.ObjectId(user) })
         } catch (error) {
             console.log(error)
         }
