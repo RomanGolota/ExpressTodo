@@ -1,4 +1,4 @@
-import RegisterAuthController from "../controller/registerAuthController.js";
+import RegisterAuthController from "../src/controller/registerAuthController.js";
 import {beforeEach} from "@jest/globals";
 
 describe('registerAuthController', () => {

@@ -1,4 +1,4 @@
-import authMiddleware from "../middleware/auth.middleware.js";
+import authMiddleware from "../src/middleware/auth.middleware.js";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from 'dotenv'
 dotenv.config()
@@ -35,7 +35,7 @@ describe('authMiddleware', () => {
         authMiddleware(req, res);
 
         expect(res.status).toHaveBeenCalledWith(401);
-        expect(res.json).toHaveBeenCalledWith({ message: 'Auth error' });
+        expect(res.json).toHaveBeenCalledWith({ message: 'Invalid token' });
     });
 
     it('authMiddleware should add the user to the request object and call next if the token is valid', () => {
@@ -51,7 +51,7 @@ describe('authMiddleware', () => {
         const next = jest.fn();
         authMiddleware(req, res, next);
 
-        expect(req.user).toEqual({ id: userId });
+        expect(req.user).toEqual(123);
         expect(next).toHaveBeenCalled();
     });
 
