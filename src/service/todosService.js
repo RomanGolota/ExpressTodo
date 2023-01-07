@@ -10,11 +10,12 @@ class todosService {
         }
     }
 
-    async createTodo(todo) {
+    async createNewTodo(todo) {
         try {
             await todo.save();
             return todo
         } catch (error) {
+            console.log('Error in createNewTodo')
             console.log(error)
         }
     }
@@ -44,4 +45,4 @@ class todosService {
     }
 }
 
-export default new todosService();
+export default todosService;

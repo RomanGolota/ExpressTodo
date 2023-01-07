@@ -1,13 +1,13 @@
-import todosService from "../service/todosService.js";
+import TodosService from "../service/todosService.js";
 
 const checkTodoOwnerMiddleware = async (req, res, next) => {
     try {
+        const todosService = new TodosService()
         const id = req.params.id;
         const todo = await todosService.getTodoById(id);
+        const reqUserId = req.user.id
 
-        if (todo.user.equals(req.user.id)) {
-            console.log(todo.user)
-            console.log(req.user.id)
+        if (todo.user.toString() === reqUserId) {
             return next();
         } else {
             return res.status(401).json({ message: 'Unauthorized' });
