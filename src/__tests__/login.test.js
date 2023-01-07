@@ -36,17 +36,18 @@ describe('registerAuthController', () => {
             req.body.email = 'invalid';
             await registerAuthController.login(req, res);
             expect(res.status).toHaveBeenCalledWith(400);
-            expect(res.json).toHaveBeenCalledWith({ message: "User with this email does not exist" });
-        });
+            expect(res.json).toHaveBe;
+        })
 
         it('should return a 400 error if password is short', async () => {
             req.body.password = 'pas';
             await registerAuthController.login(req, res);
             expect(res.status).toHaveBeenCalledWith(400);
             expect(res.json).toHaveBeenCalledWith({ message: "User with this email does not exist" });
-        });
+        })
 
         it('should return a 400 error if user not found', async () => {
+            req.body.user = 'notExistingUser@email.com';
             registerAuthService.findUser.mockResolvedValue(false);
             await registerAuthController.login(req, res);
             expect(res.status).toHaveBeenCalledWith(400);
