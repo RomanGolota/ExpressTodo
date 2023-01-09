@@ -1,8 +1,7 @@
 import TodosService from "../service/todosService.js";
 
-const checkTodoOwnerMiddleware = async (req, res, next) => {
+const checkTodoOwnerMiddleware = async (req, res, next, todosService = new TodosService()) => {
     try {
-        const todosService = new TodosService()
         const id = req.params.id;
         const todo = await todosService.getTodoById(id);
         const reqUserId = req.user.id

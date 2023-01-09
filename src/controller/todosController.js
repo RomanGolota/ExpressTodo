@@ -24,10 +24,10 @@ class TodosController {
 
             if (!todo.text) {
                 res.status(400).send({ error: 'Text is required' });
+            } else {
+                await this.todosService.createNewTodo(todo);
+                res.status(201).send(todo)
             }
-
-            await this.todosService.createNewTodo(todo);
-            res.send(todo);
         } catch (error) {
             console.log(error)
             return res.status(500).json({ message: error.message });
@@ -63,14 +63,9 @@ class TodosController {
     deleteTodo = async (req, res) => {
         try {
             const id = req.params.id
-            const todo = await this.todosService.getTodoById(id)
 
-            if(todo.user.equals(req.user.id)) {
-                await this.todosService.deleteTodo(id)
-                return res.status(200).json({ message: 'Todo delete' })
-            } else {
-                return res.status(404).json({ message: 'This todo does not property of this user' })
-            }
+            await this.todosService.deleteTodo(id)
+            return res.status(200).json({ message: 'Todo delete' })
         } catch (error) {
             console.log(error)
             return res.status(500).json({ message: error.message });
