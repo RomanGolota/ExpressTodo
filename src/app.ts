@@ -3,7 +3,7 @@ import registerAuthRouter from './router/registerAuthRouter.js';
 import todosRouter from './router/todosRouter.js';
 import corsMiddleware from "./middleware/cors.middleware.js";
 
-const application = () => {
+const application = (): express.Application => {
     const app = express();
 
     app.use(corsMiddleware);
@@ -11,7 +11,7 @@ const application = () => {
     app.use('/api/auth', registerAuthRouter);
     app.use('/api/todos', todosRouter);
 
-    return app
+    return app;
 }
 
-export default application
+export default application;
