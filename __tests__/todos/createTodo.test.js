@@ -1,4 +1,4 @@
-import TodosController from '../src/controller/todosController.js';
+import TodosController from '../../src/controller/todosController.js';
 
 describe('TodosController', () => {
     let todosController;
