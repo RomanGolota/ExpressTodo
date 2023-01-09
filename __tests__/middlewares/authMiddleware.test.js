@@ -1,4 +1,4 @@
-import authMiddleware from "../src/middleware/auth.middleware.js";
+import authMiddleware from "../../src/middleware/auth.middleware.js";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from 'dotenv'
 dotenv.config()
