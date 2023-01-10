@@ -1,4 +1,4 @@
-import checkTodoOwnerMiddleware from "../../src/middleware/checkTodoOwner.middleware.js";
+import checkTodoOwnerMiddleware from "../../src/middleware/checkTodoOwner.middleware.ts";
 import {beforeEach, jest} from "@jest/globals";
 
 describe('checkTodoOwnerMiddleware', () => {

@@ -1,4 +1,4 @@
-import validationMiddleware from "../../src/middleware/validationMiddleware.js";
+import validationMiddleware from "../../src/middleware/validationMiddleware.ts";
 
 describe('validate', () => {
     it('should call next if the request body is valid', async () => {

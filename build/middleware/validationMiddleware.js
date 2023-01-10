@@ -1,5 +1,4 @@
 import Joi from '@hapi/joi';
-
 const validate = (req, res, next) => {
     const schema = Joi.object({
         email: Joi.string().email().required(),
@@ -7,10 +6,10 @@ const validate = (req, res, next) => {
     });
     const { error } = schema.validate(req.body);
     if (error) {
-        console.log('Validation middleware error')
+        console.log('Validation middleware error');
         return res.status(400).json({ error: error.details });
     }
     next();
 };
-
-export default validate
+export default validate;
+//# sourceMappingURL=validationMiddleware.js.map
