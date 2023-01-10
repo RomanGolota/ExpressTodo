@@ -1,4 +1,4 @@
-import corsMiddleware from "../../src/middleware/cors.middleware.js";
+import corsMiddleware from "../../src/middleware/cors.middleware.ts";
 
 describe('cors middleware', () => {
     it('should set the correct headers', async () => {

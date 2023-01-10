@@ -1,6 +1,7 @@
 import Joi from '@hapi/joi';
+import {Request, Response, NextFunction} from "express";
 
-const validate = (req, res, next) => {
+const validate = (req: Request, res: Response, next: NextFunction) => {
     const schema = Joi.object({
         email: Joi.string().email().required(),
         password: Joi.string().min(4).max(255).required()

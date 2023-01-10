@@ -1,26 +1,32 @@
 import Todo from "../model/Todo.js";
 import mongoose from "mongoose";
+import { ObjectId } from 'mongoose';
 
-class todosService {
-    async getTodos(user) {
+type TodoType = {
+    text: string;
+    user: any;
+};
+
+class TodosService {
+    async getTodos(user: any): Promise<any> {
         try {
-            return await Todo.find({ user: mongoose.Types.ObjectId(user) })
+            return await Todo.find({ user: new mongoose.Types.ObjectId(user) });
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
-    async createNewTodo(todo) {
+    async createNewTodo(todo: any): Promise<any> {
         try {
             await todo.save();
-            return todo
+            return todo;
         } catch (error) {
-            console.log('Error in createNewTodo')
-            console.log(error)
+            console.log("Error in createNewTodo");
+            console.log(error);
         }
     }
 
-    async getTodoById(id) {
+    async getTodoById(id: string): Promise<any> {
         try {
             return await Todo.findById(id);
         } catch (error) {
@@ -28,7 +34,7 @@ class todosService {
         }
     }
 
-    async updateTodo(id, updatedTodo) {
+    async updateTodo(id: string, updatedTodo: TodoType): Promise<any> {
         try {
             return await Todo.findByIdAndUpdate(id, updatedTodo, { new: true });
         } catch (error) {
@@ -36,7 +42,7 @@ class todosService {
         }
     }
 
-    async deleteTodo(id) {
+    async deleteTodo(id: string): Promise<any> {
         try {
             return await Todo.findByIdAndDelete(id);
         } catch (error) {
@@ -45,4 +51,4 @@ class todosService {
     }
 }
 
-export default todosService;
+export default TodosService;

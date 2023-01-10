@@ -2078,6 +2078,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/bcryptjs@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.2.tgz#e3530eac9dd136bfdfb0e43df2c4c5ce1f77dfae"
+  integrity sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==
+
 "@types/body-parser@*":
   version "1.19.2"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.2.tgz#aea2059e28b7658639081347ac4fab3de166e6f0"
@@ -2119,6 +2124,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/hapi__joi@^17.1.9":
+  version "17.1.9"
+  resolved "https://registry.yarnpkg.com/@types/hapi__joi/-/hapi__joi-17.1.9.tgz#fb4001df38aba1cd2406ce4b17d4e6fc3b0bd036"
+  integrity sha512-oOMFT8vmCTFncsF1engrs04jatz8/Anwx3De9uxnOK4chgSEgWBvFtpSoJo8u3784JNO+ql5tzRR6phHoRnscQ==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz#8467d4b3c087805d63580480890791277ce35c44"
@@ -2137,6 +2147,13 @@
   integrity sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==
   dependencies:
     "@types/istanbul-lib-report" "*"
+
+"@types/jsonwebtoken@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-9.0.0.tgz#4db9bfaf276ef4fdc3608194fab8b8f2fd1c44f9"
+  integrity sha512-mM4TkDpA9oixqg1Fv2vVpOFyIVLJjm5x4k0V+K/rEsizfjD7Tk7LKk3GTtbB7KCfP0FEHQtsZqFxYA0+sijNVg==
+  dependencies:
+    "@types/node" "*"
 
 "@types/mime@*":
   version "3.0.1"

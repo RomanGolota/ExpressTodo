@@ -4,7 +4,7 @@ class TodosController {
         this.getTodos = async (req, res) => {
             try {
                 const todos = await this.todosService.getTodos(req.user.id);
-                res.send(todos);
+                return res.send(todos);
             }
             catch (error) {
                 console.log(error);
@@ -15,19 +15,19 @@ class TodosController {
             try {
                 const todo = new Todo({
                     text: req.body.text,
-                    user: req.user.id
+                    user: req.user.id,
                 });
                 if (!todo.text) {
-                    res.status(400).send({ error: 'Text is required' });
+                    return res.status(400).send({ error: 'Text is required' });
                 }
                 else {
                     await this.todosService.createNewTodo(todo);
-                    res.status(201).send(todo);
+                    return res.status(201).send(todo);
                 }
             }
             catch (error) {
                 console.log(error);
-                return res.status(500).json({ message: error.message });
+                return res.status(500).json({ message: error });
             }
         };
         this.findById = async (req, res) => {

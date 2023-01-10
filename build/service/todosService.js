@@ -1,9 +1,9 @@
 import Todo from "../model/Todo.js";
 import mongoose from "mongoose";
-class todosService {
+class TodosService {
     async getTodos(user) {
         try {
-            return await Todo.find({ user: mongoose.Types.ObjectId(user) });
+            return await Todo.find({ user: new mongoose.Types.ObjectId(user) });
         }
         catch (error) {
             console.log(error);
@@ -15,7 +15,7 @@ class todosService {
             return todo;
         }
         catch (error) {
-            console.log('Error in createNewTodo');
+            console.log("Error in createNewTodo");
             console.log(error);
         }
     }
@@ -44,5 +44,5 @@ class todosService {
         }
     }
 }
-export default todosService;
+export default TodosService;
 //# sourceMappingURL=todosService.js.map

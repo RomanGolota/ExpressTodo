@@ -1,6 +1,6 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 dotenv.config();
-export default class registerAuthController {
+export default class RegisterAuthController {
     constructor(registerAuthService, tokenCreator) {
         this.register = async (req, res) => {
             try {
